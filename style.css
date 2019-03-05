@@ -1,0 +1,12 @@
+p {text-align: center;}
+.news{
+	cursor: default;
+	background-color:#ececec;
+	text-align: center;
+	width: 100%;
+	max-width: 486px;
+	margin: 10px auto;
+	border-left: 3px solid #bcbcbc;
+	padding-bottom: 0.1px;
+	padding-top: 1px;
+}
