@@ -19,6 +19,7 @@ a.tgc:hover { background: rgba(1, 66, 104, 0.53); }
     align-items: center;
     align-content: center;
 }
+@media only screen and (max-width: 900px){ .bigmaincontainer {display: block; } }
 .centr{
 	cursor: default;
 	background-color:#9db1cc;
