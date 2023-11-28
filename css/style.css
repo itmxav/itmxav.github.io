@@ -18,8 +18,8 @@ a.tgc:hover { background: rgba(1, 66, 104, 0.53); }
     align-items: center;
     align-content: center;
 }
-@media screen and (max-width: 850px) {.bigmaincontainer {display: grid; justify-content: center; margin-left: 40px; }}
-@media screen and (max-width: 460px) {.bigmaincontainer {display: grid; justify-content: center; margin-left: 0px; }}
+@media screen and (max-width: 850px) {.bigmaincontainer {display: grid; margin-left: 40px; }}
+@media screen and (max-width: 460px) {.bigmaincontainer {display: grid; margin-left: 0px; }}
 .centr{
 	cursor: default;
 	background-color:#9db1cc;
