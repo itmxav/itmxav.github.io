@@ -52,6 +52,6 @@ a.tgc:hover { background: rgba(1, 66, 104, 0.53); }
 .centr.code17 {background-color:#c2c2c2;}
 .centr.code18 {background-color:#c4ccaf;}
 .centr.code19 {background-color:#9db1cc;}
-.footer {margin-top: 50px; text-align: center;}
+.footer {margin-top: 25px; text-align: center;}
 .footer > font {font-size:0.8em;}
 .footer > hr {height: 1px;background-color: #d9d9d9;border: none;}
