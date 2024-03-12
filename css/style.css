@@ -12,6 +12,16 @@ a.tgc {
   color: white;
 }
 a.tgc:hover { background: rgba(1, 66, 104, 0.53); }
+a.backup {
+  user-select: none;
+  background: rgba(3, 130, 106);
+  padding: 0.2em 0.5em;
+  outline: none;
+  border-radius: 5px;
+  color: white;
+  margin-top: 120px;
+}
+a.backup:hover { background: rgba(19, 104, 1, 0.53); }
 .bigmaincontainer {
     display: flex;
     flex-wrap: wrap;
