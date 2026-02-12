@@ -1,0 +1,95 @@
+body {
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  color: #333;
+  background: #fff;
+  font-size: 22px
+}
+
+h1{text-align: center;}
+h1, h2, h3 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+pre, code {
+  font-size:18px;
+  background: #f6f8fa;
+  border-radius: 6px;
+}
+
+pre {
+  padding: 1em;
+  overflow-x: auto;
+  border: 1px solid #e1e4e8;
+  margin: 1em 0;
+}
+
+code {
+  padding: 0.2em 0.4em;
+}
+
+.warning {
+  background: #fff8e1;
+  border-left: 4px solid #ffc107;
+  padding: 1em;
+  margin: 1.5em 0;
+}
+
+a {
+  color: #0969da;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+hr {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.notes-list {
+  list-style: none;
+  padding: 0;
+}
+
+.notes-list li {
+  margin-bottom: 1.2em;
+}
+
+.notes-list a {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.notes-list time {
+  display: block;
+  color: #666;
+  font-size: 0.9em;
+  margin-top: 0.2em;
+}
+
+.pcntr{text-align: center;font-size: 20px;}
+
+a.infooTG {
+  color: #fff;
+  text-decoration: none;
+  user-select: none;
+  background: rgb(142 3 16 / .72);
+  padding: .5em 1.5em;
+  outline: none;
+  margin-left: 20%;
+  margin-top: 10px;
+  display: block;
+  margin-right: 20%;
+  text-align: center;
+  border-radius: 5px 5px;
+}
+ a.infooTG:hover { background: rgb(1 66 104 / .53); border-radius: 5px 5px;}
+ .under {text-decoration: underline;}
+ .colorspec{color: #C23B21; font-weight: bold}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Пошаговая инструкция, как обновить прошивку на коммутаторе FS S5900-24S4T2Q через TFTP. Включает команды, резервное копирование и настройку загрузки.">
+  <meta name="keywords" content="FS S5900, прошивка, firmware update, коммутатор, TFTP, CLI, сетевое оборудование, обновление ПО">
+  <meta property="og:title" content="Как обновить прошивку на FS S5900-24S4T2Q?">
+  <meta property="og:description" content="Инструкция по обновлению прошивки на FS S5900-24S4T2Q через TFTP с сохранением конфигурации и резервной прошивкой.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://itmxav.github.io/notes/kak-obnovit-proshivku-na-fs-s5900-24s4t2q.html">
+  <meta property="og:site_name" content="IT-заметки MXAV. Архив">
+  <title>Как обновить прошивку на FS S5900-24S4T2Q</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <h1>Как обновить прошивку на FS S5900-24S4T2Q?</h1>
+
+  <div class="warning">
+    Если решите как-то реализовать написанное, то все действия вы производите на свой страх и риск!
+  </div>
+
+  <p>Что-то какие баги на багах попадаются в коммутаторах в последнее время. Счетчики SNMP криво работали на S5900-24S4T2Q. Потребовалось обновить ПО.</p>
+
+  <p>Добываем прошивку <a href="https://www.fs.com/eu-en/products_support.html?isPica=false&categories_id=3079&third_categories_id=3256&products_model=S5900-24S4T2Q&style_id=9&files_id=d1356">здесь</a>.</p>
+
+  <p>Закидываем самым распространенным способом: сначала на TFTP-сервер свой, а потом на оттуда на коммутатор.</p>
+
+  <p>Посмотреть что есть на flash (конфиг естественно заранее сохранен на всякий случай):</p>
+  <pre><code>enable
+# dir</code></pre>
+
+  <p>Смотрим текущую версию:</p>
+  <pre><code># show version</code></pre>
+
+  <p>Скачиваем с TFTP-сервера:</p>
+  <pre><code># copy tftp: flash:</code></pre>
+  <p>Попутно указали, что именно и откуда именно качаем.</p>
+
+  <p>Закинем на TFTP-сервер старую прошивку, мало ли:</p>
+  <pre><code>copy flash: tftp:</code></pre>
+  <p>Попутно указали, что именно и откуда именно качаем.</p>
+
+  <p>Теперь переходим в конфиг, указываем новое ПО и потом старое на всякий случай:</p>
+  <pre><code># config
+sw_config# boot system flash FSOS_S5900-24S4TSQ_2.2.0D_79390_04055_2020.bin
+sw_config# boot system flash FSOS-S5900V2.2.0.bin</code></pre>
+
+  <p>Сохраняем, а то изменения слетят и перезагружаемся:</p>
+  <pre><code># write
+# reboot</code></pre>
+
+  <p>Проверяем работу и версию ПО после перезагрузки.</p>
+  <p class="pcntr"><a href="index.html">← Все заметки</a> | <a class="under" href="https://it.mxav.ru/2026/01/26/kak-obnovit-proshivku-na-fs-s5900-24s4t2q/">Запись на сайте</a> 
+  <hr>
+  <a class="infooTG" href="https://t.me/itmxav">Заметки в Telegram</a>
+</body>
+</html>

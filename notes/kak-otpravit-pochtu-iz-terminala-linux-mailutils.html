@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Пошаговая инструкция, как отправить электронное письмо из терминала Linux с помощью mailutils и ssmtp. Включает установку, настройку и примеры использования.">
+  <meta name="keywords" content="Linux, терминал, отправка почты, mailutils, ssmtp, CLI, email, командная строка">
+  <meta property="og:title" content="Как отправить почту из терминала Linux (mailutils)">
+  <meta property="og:description" content="Инструкция по отправке email из терминала Linux с использованием mailutils и ssmtp. Примеры команд и настройки конфигурации.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://itmxav.github.io/notes/kak-otpravit-pochtu-iz-terminala-linux-mailutils.html">
+  <meta property="og:site_name" content="IT-заметки MXAV. Архив">
+  <title>Как отправить почту из терминала Linux (mailutils)</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>Как отправить почту из терминала Linux (mailutils)?</h1>
+
+  <div class="warning">
+    Если решите как-то реализовать написанное, то все действия вы производите на свой страх и риск!
+  </div>
+
+  <p>Иногда возникает необходимость отправить уведомление или отчёт прямо из терминала — например, по завершении скрипта резервного копирования или при сбое задачи cron. Для этого можно использовать утилиту <code>mail</code> из пакета <strong>mailutils</strong>.</p>
+
+  <h2>Установка mailutils</h2>
+  <p>Сначала установим необходимые пакеты:</p>
+  <pre><code>sudo apt update
+sudo apt install mailutils ssmtp</code></pre>
+
+  <h2>Настройка ssmtp</h2>
+  <p>Для отправки почты через внешний SMTP-сервер (например, Gmail) нужно настроить <code>ssmtp</code>. Отредактируйте файл конфигурации:</p>
+  <pre><code>sudo nano /etc/ssmtp/ssmtp.conf</code></pre>
+
+  <p>Пример содержимого для Gmail (требуется «пароль приложения»):</p>
+  <pre><code>root=your_email@gmail.com
+mailhub=smtp.gmail.com:587
+AuthUser=your_email@gmail.com
+AuthPass=your_app_password
+UseSTARTTLS=YES
+FromLineOverride=YES</code></pre>
+
+  <p>Замените <code>your_email@gmail.com</code> и <code>your_app_password</code> на свои данные.</p>
+
+  <h2>Отправка письма</h2>
+  <p>Теперь можно отправлять письма прямо из терминала:</p>
+  <pre><code>echo "Текст сообщения" | mail -s "Тема письма" recipient@example.com</code></pre>
+
+  <p>Можно также отправить файл как тело письма:</p>
+  <pre><code>mail -s "Лог ошибок" admin@example.com &lt; /var/log/error.log</code></pre>
+
+  <p>Или ввести текст вручную (завершить ввод — Ctrl+D):</p>
+  <pre><code>mail -s "Ручное письмо" user@example.com</code></pre>
+
+  <h2>Проверка работы</h2>
+  <p>Если всё настроено верно, письмо должно прийти получателю. При проблемах проверьте логи:</p>
+  <pre><code>tail -f /var/log/mail.log</code></pre>
+
+  <p>Обратите внимание: некоторые почтовые провайдеры (включая Gmail) требуют включить двухфакторную аутентификацию и использовать «пароли приложений» вместо основного пароля.</p>
+
+  <p class="pcntr"><a href="index.html">← Все заметки</a> | <a class="under" href="https://it.mxav.ru/2020/04/05/kak-otpravit-pochtu-iz-terminala-linux-mailutils/">Запись на сайте</a></p>
+  <hr>
+  <a class="infooTG" href="https://t.me/itmxav">Заметки в Telegram</a>
+</body>
+</html>

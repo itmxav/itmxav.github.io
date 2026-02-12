@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Краткая инструкция, как проверить корректность конфигурации SSH-сервера с помощью команды sshd -t.">
+  <meta name="keywords" content="SSH, OpenSSH, конфигурация, sshd, проверка конфига, DevOps, Linux">
+  <meta property="og:title" content="Как проверить конфигурацию SSH?">
+  <meta property="og:description" content="Инструкция по проверке конфигурационного файла SSH-сервера на ошибки с помощью встроенной команды sshd -t.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://itmxav.github.io/notes/kak-proverit-konfiguraciyu-ssh.html">
+  <meta property="og:site_name" content="IT-заметки MXAV. Архив">
+  <title>Как проверить конфигурацию SSH?</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>Как проверить конфигурацию SSH?</h1>
+
+  <div class="warning">
+    Если решите как-то реализовать написанное, то все действия вы производите на свой страх и риск!
+  </div>
+
+  <p>При настройке или изменении конфигурации SSH-сервера важно убедиться, что файл <code>/etc/ssh/sshd_config</code> не содержит синтаксических ошибок — иначе сервер может не запуститься после перезагрузки или перезапуска службы.</p>
+
+  <h2>Проверка конфигурации</h2>
+  <p>Для проверки используйте следующую команду:</p>
+  <pre><code>sshd -t</code></pre>
+
+  <p>Если конфигурация корректна, команда завершится без вывода и с кодом возврата 0.</p>
+  <p>Если есть ошибки — будет выведено сообщение с указанием строки и типа ошибки, например:</p>
+  <pre><code>/etc/ssh/sshd_config line 42: Unsupported option "AllowUserss"</code></pre>
+
+  <p>Эту проверку рекомендуется выполнять перед перезапуском SSH-сервиса, особенно при удалённой работе, чтобы избежать потери доступа к серверу.</p>
+
+  <p class="pcntr"><a href="index.html">← Все заметки</a> | <a class="under" href="https://it.mxav.ru/2025/08/25/kak-proverit-konfiguraciyu-ssh/">Запись на сайте</a></p>
+  <hr>
+  <a class="infooTG" href="https://t.me/itmxav">Заметки в Telegram</a>
+</body>
+</html>
